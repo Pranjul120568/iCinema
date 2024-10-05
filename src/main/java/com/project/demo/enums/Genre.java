@@ -1,0 +1,7 @@
+package com.project.demo.enums;
+
+public enum Genre {
+    ACTION, ADVENTURE, COMEDY, CRIME, MYSTERY, FANTASY, HISTORICAL,
+    FICTION, HORROR, ROMANCE, SATIRE, SCIENCE, CYBERPUNK
+
+}
