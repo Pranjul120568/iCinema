@@ -20,4 +20,5 @@ public class UserDTO {
         userDTO.setImageUrl(user.getImageUrl());
         return userDTO;
     }
+
 }

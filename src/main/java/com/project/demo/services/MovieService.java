@@ -1,5 +1,6 @@
 package com.project.demo.services;
 
+import com.project.demo.dto.MovieDTO;
 import com.project.demo.entity.Movie;
 import com.project.demo.enums.Genre;
 import com.project.demo.enums.Language;
@@ -37,6 +38,17 @@ public class MovieService {
     public List<Movie> findMoviesByGenre(String genre){
         Genre movieGenre = Genre.valueOf(genre.toUpperCase());
         return movieRepository.searchMovieByGenre(movieGenre);
+    }
+
+    public String createAMovie(MovieDTO movieDTO){
+        Movie movie = movieDTO.convertToMovieEntity(movieDTO);
+        try {
+            movieRepository.save(movie);
+        }catch (Exception e){
+            e.printStackTrace();
+            return e.getMessage();
+        }
+        return "Movie created";
     }
 
 

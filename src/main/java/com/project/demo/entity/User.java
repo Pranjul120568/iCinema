@@ -39,6 +39,9 @@ public class User implements UserDetails {
     @Column(updatable = false, name = "created_at")
     private Date createdAt;
 
+    @Column(name = "movies_rated")
+    private String moviesRated;
+
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;

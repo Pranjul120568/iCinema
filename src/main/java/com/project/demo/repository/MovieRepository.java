@@ -19,7 +19,9 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
     @Query("SELECT m FROM Movie m WHERE :language MEMBER of m.movieLanguages")
     public List<Movie> searchMovieByLanguage(@Param("language")Language language);
 
-    @Query("SELECT m FROM Movie m WHERE :language MEMBER of m.movieGenre")
+    @Query("SELECT m FROM Movie m WHERE :genre MEMBER of m.movieGenre")
     public List<Movie> searchMovieByGenre(@Param("genre") Genre genre);
 
+    @Query("UPDATE Movie m SET m.movieRatings = ((m.movieRatings * m.numberOfRatings + :new_rating)/m.numberOfRatings + 1), m.numberOfRatings = m.numberOfRatings + 1  WHERE m.movieId = :movie_id")
+    public void updateRating(@Param("new_rating") Float newRating, @Param("movie_id") Integer movieId);
 }

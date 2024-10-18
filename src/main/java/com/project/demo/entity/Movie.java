@@ -1,5 +1,6 @@
 package com.project.demo.entity;
 
+import com.project.demo.dto.MovieDTO;
 import com.project.demo.enums.Genre;
 import com.project.demo.enums.Language;
 import com.project.demo.utility.GenreSetConverter;
@@ -63,5 +64,22 @@ public class Movie {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private Date updatedAt;
+
+
+    public MovieDTO convertToMovieDTO(Movie movie){
+        MovieDTO movieDTO = new MovieDTO();
+        movieDTO.setMovieImages(movie.getMovieImages());
+        movieDTO.setMovieName(movie.getMovieName());
+        movieDTO.setMovieId(movie.getMovieId());
+        movieDTO.setMovieRatings(movie.getMovieRatings());
+        movieDTO.setMovieDescription(movie.getMovieDescription());
+        movieDTO.setMovieGenre(movie.getMovieGenre());
+        movieDTO.setMovieImages(movie.getMovieImages());
+        movieDTO.setMovieLanguages(movie.getMovieLanguages());
+        movieDTO.setNumberOfBookings(movie.getNumberOfBookings());
+        movieDTO.setNumberOfRatings(movie.getNumberOfRatings());
+        movieDTO.setMovieReleaseDate(movie.getMovieReleaseDate());
+        return movieDTO;
+    }
 
 }
